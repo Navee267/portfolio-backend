@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 
 const cors = require('cors');
 app.use(cors({
-    origin: 'https://portfoliofrontendnaveen.netlify.app/',
+    origin: 'https://portfolio-frontend-naveen.netlify.app/',
     credentials: true
 }));
 const connectToDB = require('./services/db');
