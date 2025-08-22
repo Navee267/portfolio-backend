@@ -8,6 +8,7 @@ const works = require('../models/ProjectModel')
 const upload = require('../middlewares/multerConfig');
 const Education = require('../models/EducationModel')
 const Experience = require('../models/ExperienceModel')
+const jwt = require('jsonwebtoken')
 
 router.post('/addSkill', authenticateUser, allowRoles('admin'), upload.single('file'), async (req, res) => {
     const { skill, level } = req.body
@@ -41,7 +42,7 @@ router.delete('/deleteSkill/:id', authenticateUser, allowRoles('admin'), async (
         if (!deletedSkill) {
             return res.status(404).json({ message: "Skill not found" });
         }
-        return res.status(200).json({ message: "Skill deleted successfully", deletedSkill });
+        res.status(200).json({ message: "Skill deleted successfully", deletedSkill });
     } catch (error) {
         res.status(500).json({ message: "Error deleting skill", error });
     }
@@ -100,7 +101,7 @@ router.delete('/deleteProject/:id', authenticateUser, allowRoles('admin'), async
         if (!deletedProject) {
             return res.status(404).json({ message: "Project not found" });
         }
-        return res.status(200).json({ message: "Project deleted successfully", deletedProject });
+        res.status(200).json({ message: "Project deleted successfully", deletedProject });
     } catch (error) {
         res.status(500).json({ message: "Error deleting project", error });
     }
