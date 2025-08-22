@@ -41,7 +41,7 @@ router.delete('/deleteSkill/:id', authenticateUser, allowRoles('admin'), async (
         if (!deletedSkill) {
             return res.status(404).json({ message: "Skill not found" });
         }
-        res.status(200).json({ message: "Skill deleted successfully", deletedSkill });
+        return res.status(200).json({ message: "Skill deleted successfully", deletedSkill });
     } catch (error) {
         res.status(500).json({ message: "Error deleting skill", error });
     }
@@ -100,7 +100,7 @@ router.delete('/deleteProject/:id', authenticateUser, allowRoles('admin'), async
         if (!deletedProject) {
             return res.status(404).json({ message: "Project not found" });
         }
-        res.status(200).json({ message: "Project deleted successfully", deletedProject });
+        return res.status(200).json({ message: "Project deleted successfully", deletedProject });
     } catch (error) {
         res.status(500).json({ message: "Error deleting project", error });
     }
@@ -133,7 +133,7 @@ router.delete('/deleteCertification/:id', authenticateUser, allowRoles('admin'),
         if (!deletedCertification) {
             return res.status(404).json({ message: "Certification not found" });
         }
-        res.status(200).json({ message: "Certification deleted successfully", deletedCertification });
+        return res.status(200).json({ message: "Certification deleted successfully", deletedCertification });
     } catch (error) {
         res.status(500).json({ message: "Error deleting certification", error });
     }
