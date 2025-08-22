@@ -30,7 +30,7 @@ router.post('/', upload.none(), async (req, res) => {
         )
 
         res.cookie('token',token,{
-            httpOnly : true,secure : false,sameSite : 'lax',maxAge : 60 * 60 * 1000
+            httpOnly : true,secure : false,sameSite : 'none',maxAge : 60 * 60 * 1000
         })
 
         res.status(200).json({message : 'LOGIN Successfull With Cookies',token : token})
