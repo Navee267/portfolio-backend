@@ -16,7 +16,7 @@ const connectToDB = require('./services/db');
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }))
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, 'portfolio-backend','uploads')));
 app.use(morgan('dev'));
 
 app.use('/login', require('./routers/loginRouter'));
